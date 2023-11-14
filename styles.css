@@ -71,3 +71,10 @@ h6 {
   bottom: 0px;
   left: 10px;
 }
+.right-half {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
