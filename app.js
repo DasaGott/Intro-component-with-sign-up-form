@@ -48,6 +48,11 @@ function handlesubmit(event) {
     const emailField =
       document.getElementById("email");
     emailField.classList.remove("error");
+    emailField.placeholder = "Email Adress";
+
+    loginForm.reset();
+
+    alert("Thank you for submitting");
   }
 }
 
