@@ -6,21 +6,23 @@
 
 body {
   background-image: url("images/bg-intro-desktop.png");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
+  height: 100vh;
+  overflow: hidden;
 }
 
 body::before {
   content: " ";
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
   background-color: rgba(255, 0, 0, 0.5);
 }
 
@@ -54,7 +56,7 @@ body::before {
 h6 {
   text-wrap: balance;
   text-align: left;
-  font-family: inherit;
+  font-family: "Poppins", sans-serif;
   margin-left: 80px;
   display: inline;
 }
@@ -89,7 +91,7 @@ h6 {
   align-items: center;
   font-size: 10px;
   letter-spacing: 1.1px;
-  font-family: inherit;
+  font-family: "Poppins", sans-serif;
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
 }
 div.form {
@@ -127,9 +129,10 @@ span.terms {
 
 .form input::placeholder {
   color: rgba(0, 0, 0, 0.6);
-  font-family: inherit;
   font-weight: 600;
   font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0px;
 }
 
 .form input:first-child {
@@ -143,6 +146,7 @@ span.terms {
   color: hsl(249, 10%, 26%);
   font-weight: 600;
   caret-color: hsl(248, 32%, 49%);
+  font-family: inherit;
 }
 
 #submit {
@@ -154,4 +158,44 @@ span.terms {
   font-size: 12px;
   padding: 10px 0;
   box-shadow: 0px 3px 0px 0px rgb(0, 180, 100);
+  font-family: inherit;
+}
+
+@media only screen and (max-width: 675px) {
+  body {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .content-wrapper {
+    margin: 0 auto;
+    /* height: 200vh; */
+    position: relative;
+    border: 1px solid #000;
+  }
+  .left-half,
+  .right-half {
+    width: 100%;
+    height: 50%;
+  }
+  .right-half {
+    position: absolute;
+    top: 22%;
+  }
+
+  .left-half {
+    position: absolute;
+    top: 0%;
+    justify-content: flex-start;
+  }
+  .form {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  input {
+    max-width: 375px;
+    background-color: yellow;
+    width: auto;
+  }
 }
