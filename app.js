@@ -14,18 +14,35 @@ function handlesubmit(event) {
   const email =
     document.getElementById("email").value;
   const password =
-    document.getElementById("password");
+    document.getElementById("password").value;
 
   if (
     firstName == "" ||
     lastName == "" ||
-    email == "" ||
     password == ""
   ) {
     trowErrorMessage();
+  }
+  if (email == "" || !isValidEmail(email)) {
+    const emailField =
+      document.getElementById("email");
+    emailField.classList.add("error");
+
+    const errorMessage = document.querySelector(
+      ".error-text-email"
+    );
+    errorMessage.innerHTML = `Looks like this is not an email`;
+
+    emailField.placeholder = "email@example/com";
   } else {
     alert("Thank you for submition");
   }
+}
+
+function isValidEmail(email) {
+  const emailValidation =
+    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return emailValidation.test(email);
 }
 
 function trowErrorMessage() {
@@ -42,6 +59,6 @@ function trowErrorMessage() {
       idx
     ].innerHTML = `${input.placeholder} cannot be empty`;
 
-    input.placeholder = "!";
+    input.removeAttribute("placeholder");
   });
 }
