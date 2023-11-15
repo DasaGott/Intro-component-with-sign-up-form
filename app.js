@@ -5,6 +5,12 @@ loginForm.addEventListener(
   handlesubmit
 );
 
+const inputFields =
+  document.querySelectorAll(".inputs");
+inputFields.forEach((input) => {
+  input.addEventListener("input", handleInput);
+});
+
 function handlesubmit(event) {
   event.preventDefault();
   const firstName =
@@ -23,7 +29,11 @@ function handlesubmit(event) {
   ) {
     trowErrorMessage();
   }
-  if (email == "" || !isValidEmail(email)) {
+
+  if (
+    email.trim() == "" ||
+    !isValidEmail(email)
+  ) {
     const emailField =
       document.getElementById("email");
     emailField.classList.add("error");
@@ -35,7 +45,9 @@ function handlesubmit(event) {
 
     emailField.placeholder = "email@example/com";
   } else {
-    alert("Thank you for submition");
+    const emailField =
+      document.getElementById("email");
+    emailField.classList.remove("error");
   }
 }
 
@@ -51,14 +63,32 @@ function trowErrorMessage() {
   );
 
   inputFields.forEach((input, idx) => {
-    input.classList.add("error");
+    const inputValue = input.value.trim();
+    if (inputValue === "") {
+      input.classList.add("error");
 
-    const errorMessage =
-      document.querySelectorAll(".error-text");
-    errorMessage[
-      idx
-    ].innerHTML = `${input.placeholder} cannot be empty`;
+      const errorMessage =
+        document.querySelectorAll(".error-text");
+      errorMessage[
+        idx
+      ].innerHTML = `${input.placeholder} cannot be empty`;
 
-    input.removeAttribute("placeholder");
+      input.removeAttribute("placeholder");
+    } else {
+      input.classList.remove("error");
+
+      const errorMessage =
+        document.querySelectorAll(".error-text");
+      errorMessage[idx].innerHTML = "";
+    }
   });
+}
+
+function handleInput(event) {
+  event.preventDefault();
+  const input = event.target;
+  const errorMessage = input.nextElementSibling;
+
+  input.classList.remove("error");
+  errorMessage.innerHTML = "";
 }
