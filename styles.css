@@ -191,7 +191,10 @@ input.error {
 @media only screen and (max-width: 675px) {
   body {
     background-image: url(images/bg-intro-mobile.png);
+    background-size: cover;
     height: fit-content;
+    overflow: hidden;
+    height: 100%;
   }
   .content-wrapper {
     flex-direction: column;
