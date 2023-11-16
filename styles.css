@@ -196,6 +196,7 @@ input.error {
     flex-direction: column;
     padding: 0 3rem;
     margin: 3rem auto;
+    position: relative;
   }
   .left-half,
   .right-half {
@@ -215,26 +216,24 @@ input.error {
 
   .right-half {
     position: absolute;
-    top: 40%;
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 35%;
+    min-width: 375px;
   }
 
-  /* .form {
-    display: block;
-    max-width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  div.form {
+    width: 90%;
+    padding: 0;
   }
-  input {
-    max-width: 80%;
-    background-color: yellow;
-  } */
+  div.payment-button {
+    width: 90%;
+  }
 
+  div.form-inside {
+    width: 95%;
+  }
+  .form input {
+    width: 95%;
+  }
   .attribution {
     display: none;
   }
