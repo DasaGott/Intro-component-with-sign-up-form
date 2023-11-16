@@ -192,8 +192,6 @@ input.error {
   body {
     background-image: url(images/bg-intro-mobile.png);
     background-size: cover;
-    height: fit-content;
-    overflow: hidden;
     height: 100%;
   }
   body::before {
