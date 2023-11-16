@@ -191,11 +191,10 @@ input.error {
 @media only screen and (max-width: 675px) {
   body {
     background-image: url(images/bg-intro-mobile.png);
+    height: fit-content;
   }
   .content-wrapper {
     flex-direction: column;
-    padding: 0 3rem;
-    margin: 3rem auto;
     position: relative;
   }
   .left-half,
